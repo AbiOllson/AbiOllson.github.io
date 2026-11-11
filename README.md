@@ -116,6 +116,26 @@ bundle exec jekyll serve
 Then open http://127.0.0.1:4000. Changes appear when you reload
 (changes to `_config.yml` need a restart).
 
+## Publish your changes
+
+When the preview looks right, in a terminal in this folder:
+
+```bash
+git add -A
+git commit -m "Add a talk"
+git push
+```
+
+The repository and its history are public, so a commit message describes only
+the visible change. The site is live a minute or two after the push; the
+build's progress is under the repository's
+[Actions](https://github.com/AbiOllson/AbiOllson.github.io/actions) tab, and if
+a build fails the site keeps its previous version.
+
+Small edits can also be made on github.com (open the file, click the pencil
+icon, then "Commit changes"), which rebuilds the site too. Afterwards run
+`git pull` here before changing anything on this computer.
+
 ## The Cayley permutation table (switched off for now)
 
 `assets/js/cayley.js` draws an interactive "Avoiding a pattern, length by
