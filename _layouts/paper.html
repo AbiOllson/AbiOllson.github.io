@@ -1,0 +1,47 @@
+---
+layout: default
+section: papers
+---
+{%- assign papers = site.papers | sort: "order" | reverse -%}
+{%- for p in papers -%}
+  {%- if p.url == page.url -%}
+    {%- assign i = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign newer_i = i | minus: 1 -%}
+{%- assign older_i = i | plus: 1 -%}
+<article class="post item-page">
+  <p class="breadcrumb"><a href="{{ '/papers/' | relative_url }}">Papers</a></p>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="paper-authors">{% include author-names.html keys=page.authors %}</p>
+    <p class="paper-status">{% include paper-status.html paper=page %}</p>
+  </header>
+
+  <div class="post-content">
+    {%- if content.size > 2 %}
+    <h2>Abstract</h2>
+    {{ content }}
+    {%- endif %}
+    {% include paper-links.html paper=page %}
+
+    {%- if page.projects %}
+    <h2>Research projects</h2>
+    <ul>
+      {%- for key in page.projects -%}
+        {%- assign proj = site.projects | where: "short", key | first -%}
+        {%- if proj %}<li><a href="{{ proj.url | relative_url }}">{{ proj.title }}</a></li>{% endif -%}
+      {%- endfor -%}
+    </ul>
+    {%- endif %}
+  </div>
+
+  <nav class="prev-next" aria-label="Other papers">
+    {%- if newer_i >= 0 -%}{%- assign q = papers[newer_i] -%}
+    <a class="prev" href="{{ q.url | relative_url }}"><span>← Newer</span>{{ q.title }}</a>
+    {%- endif -%}
+    {%- if older_i < papers.size -%}{%- assign q = papers[older_i] -%}
+    <a class="next" href="{{ q.url | relative_url }}"><span>Older →</span>{{ q.title }}</a>
+    {%- endif -%}
+  </nav>
+</article>

@@ -1,0 +1,72 @@
+---
+layout: page
+title: Curriculum vitae
+nav_title: CV
+section: cv
+permalink: /cv/
+---
+{%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+<p class="cv-pdf"><a href="{{ site.cv_pdf | relative_url }}">Download my CV as a PDF</a></p>
+
+<section class="cv-section">
+  <h2>Education</h2>
+  <ul class="cv-list">
+    {%- for e in site.data.education %}
+    <li><span class="cv-date">{{ e.dates }}</span>
+      <div class="cv-body"><strong>{{ e.degree }}</strong>, {{ e.institution }}.<br>{{ e.details }}</div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="cv-section">
+  <h2>Publications</h2>
+  <ul class="cv-list">
+    {%- assign papers = site.papers | sort: "order" | reverse -%}
+    {%- for p in papers %}
+    <li><span class="cv-date">{% if p.year %}{{ p.year }}{% else %}In prep.{% endif %}</span>
+      <div class="cv-body"><a href="{{ p.url | relative_url }}">{{ p.title }}</a>.
+        {% include author-names.html keys=p.authors %}.
+        {% include paper-status.html paper=p %}.</div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="cv-section">
+  <h2>Talks and posters</h2>
+  <ul class="cv-list">
+    {%- for t in site.data.talks %}
+    {%- assign mi = t.month | minus: 1 %}
+    <li><span class="cv-date">{{ months[mi] }} {{ t.year }}</span>
+      <div class="cv-body">{{ t.title }}{% if t.type == "poster" %} (poster){% endif %}. {% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}, {{ t.venue }}.</div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="cv-section">
+  <h2>Teaching</h2>
+  <p>Laboratory demonstrator at Keele University for the following modules.</p>
+  <ul class="cv-list">
+    {%- for t in site.data.teaching %}
+    <li><span class="cv-date">{{ t.dates }}</span><div class="cv-body">{{ t.what }}</div></li>
+    {%- endfor %}
+    <li><span class="cv-date">2020–2026</span><div class="cv-body">Private tutor for GCSE and A-Level Mathematics</div></li>
+  </ul>
+</section>
+
+<section class="cv-section">
+  <h2>Service</h2>
+  <ul class="cv-list">
+    {%- for s in site.data.service %}
+    <li><span class="cv-date">{{ s.dates }}</span><div class="cv-body">{{ s.what }}</div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="cv-section">
+  <h2>Awards</h2>
+  <ul class="cv-list">
+    {%- for a in site.data.awards %}
+    <li><span class="cv-date">{{ a.dates }}</span><div class="cv-body">{{ a.what }}</div></li>
+    {%- endfor %}
+  </ul>
+</section>

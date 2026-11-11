@@ -1,0 +1,43 @@
+---
+layout: page
+title: Research
+section: projects
+permalink: /projects/
+---
+{%- comment -%}
+HTML page, so maths uses single backslashes: \( … \). The Cayley permutation
+table (assets/js/cayley.js) is switched off for now; see the comments below.
+{%- endcomment -%}
+<section class="cayley cayley-first" aria-labelledby="cayley-heading">
+  <h2 id="cayley-heading">Cayley permutations</h2>
+
+  <p>A <em>Cayley permutation</em> is a word on \(\mathbb{N}\) in which every value from 1 to the maximum appears at least once. They are in bijection with ordered set partitions. Many combinatorial objects can be defined as words on \(\mathbb{N}\) such as set partitions, permutations, inversion sequences, restricted growth functions and ascent sequences. Standardising a subsequence of a word by replacing each occurrence of the smallest value by 1, the next smallest by 2, and so on, gives a Cayley permutation, so Cayley permutations are a natural way to define pattern avoidance in words on \(\mathbb{N}\).</p>
+
+  <p>The focus of my research so far has been the avoidance of Cayley permutations in combinatorial objects defined as words on \(\mathbb{N}\).</p>
+
+  {%- comment -%} The interactive avoidance table, switched off for now. To bring it
+  back, move this block out of the comment and the script tag at the bottom too.
+  <div class="cp-widget">
+    <h3>Avoiding a pattern, length by length</h3>
+    <p>Choose one or more patterns to see how many Cayley permutations of each length avoid them. There are 1, 3, 13, 75, 541 and 4683 Cayley permutations of lengths 1 to 6, the Fubini numbers. Avoiding 11 leaves exactly the permutations.</p>
+    <div id="cp-avoidance"><p>This interactive table needs JavaScript.</p></div>
+  </div>
+  {%- endcomment %}
+</section>
+
+<h2 class="projects-heading">Research projects</h2>
+{%- assign projects = site.projects | sort: "order" -%}
+<ul class="project-list">
+{%- for proj in projects -%}
+  {%- comment -%}A first figure with "position: right" sits beside the text (below it on a phone).{%- endcomment -%}
+  {%- assign first_fig = proj.figures | first -%}
+  <li class="project-item{% if first_fig.position == 'right' %} has-side-figure{% endif %}">
+    <h3><a href="{{ proj.url | relative_url }}">{{ proj.title }}</a></h3>
+    <p class="paper-authors">{% include author-names.html keys=proj.authors %}</p>
+    <div class="project-text">{{ proj.content }}</div>
+    {% include project-figure.html project=proj small=true %}
+    <p class="more"><a href="{{ proj.url | relative_url }}" aria-label="More about {{ proj.title }}">More →</a></p>
+  </li>
+{%- endfor -%}
+</ul>
+{%- comment -%}<script src="{{ '/assets/js/cayley.js' | relative_url }}" defer></script>{%- endcomment %}

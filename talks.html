@@ -1,0 +1,12 @@
+---
+layout: page
+title: Talks
+section: talks
+permalink: /talks/
+---
+<p>Talks, seminars and posters, in reverse chronological order.</p>
+<ul class="talk-list">
+{%- for t in site.data.talks -%}
+  {% include talk-item.html talk=t %}
+{%- endfor -%}
+</ul>

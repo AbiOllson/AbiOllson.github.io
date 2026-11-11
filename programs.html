@@ -1,0 +1,20 @@
+---
+layout: page
+title: Programs
+section: programs
+permalink: /programs/
+# Hidden for now: set to true, add programs.html to header_pages and set
+# programs "output: true" in _config.yml.
+published: false
+---
+{%- assign programs = site.programs | sort: "order" -%}
+<ul class="project-list">
+{%- for prog in programs -%}
+  <li class="project-item">
+    <h2><a href="{{ prog.url | relative_url }}"><code>{{ prog.title }}</code></a></h2>
+    <p class="paper-authors">{% include author-names.html keys=prog.authors %}</p>
+    {{ prog.content }}
+    <ul class="inline-links"><li><a href="{{ prog.repo }}">Repository on GitHub</a></li></ul>
+  </li>
+{%- endfor -%}
+</ul>

@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="wrapper footer-inner">
+    <div class="footer-name">
+      <p><strong>{{ site.author.name | escape }}</strong></p>
+      <p>{{ site.footer_sentence | escape }}</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:{{ site.email }}">{% include icon.html name="email" %}{{ site.email }}</a></li>
+      <li><a href="{{ site.links.github }}">{% include icon.html name="github" %}GitHub: {{ site.links.github_user }}</a></li>
+      <li><a href="{{ site.links.orcid }}">{% include icon.html name="orcid" %}ORCID</a></li>
+      <li><a href="{{ site.links.scholar }}">{% include icon.html name="scholar" %}Google Scholar</a></li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,13 @@
+{%- comment -%}
+Renders a list of author short names (keys into _authors/) as linked names.
+Usage: {% include author-names.html keys=page.authors %}
+Unknown keys are shown as plain text so a missing author file is visible, not silent.
+{%- endcomment -%}
+{%- assign n = include.keys | size -%}
+{%- for key in include.keys -%}
+  {%- assign a = site.authors | where: "short", key | first -%}
+  {%- if a -%}
+    {%- if a.is_me -%}<span class="me">{{ a.name }}</span>{%- else -%}<a href="{{ a.url | relative_url }}">{{ a.name }}</a>{%- endif -%}
+  {%- else -%}{{ key }}{%- endif -%}
+  {%- if forloop.rindex == 2 %} and {% elsif forloop.last == false %}, {% endif -%}
+{%- endfor -%}

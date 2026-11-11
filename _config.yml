@@ -1,0 +1,86 @@
+title: Abigail Ollson
+author:
+  name: Abigail Ollson
+email: a.n.ollson@keele.ac.uk
+description: >-
+  Personal site of Abigail Ollson, PhD student in enumerative combinatorics at
+  Keele University: papers, talks, research projects and software on
+  pattern-avoiding words on ℕ such as Cayley permutations.
+footer_sentence: PhD student in enumerative combinatorics at Keele University.
+url: "https://abiollson.github.io"
+baseurl: ""
+lang: en-GB
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Profile links, used in the front-page intro and the footer.
+links:
+  github: https://github.com/AbiOllson
+  github_user: AbiOllson
+  orcid: https://orcid.org/0009-0006-0744-9857
+  scholar: https://scholar.google.com/citations?user=XP_NjsIAAAAJ
+  arxiv: https://arxiv.org/search/math?searchtype=author&query=Ollson,+A
+
+# MathJax is pinned to an exact version.
+mathjax_version: 3.2.2
+
+cv_pdf: /assets/Abigail_Ollson_CV.pdf
+
+header_pages:
+  - cv.html
+  - projects.html
+  - papers.html
+  - talks.html
+  # Hidden for now; each can be brought back:
+  # - Programs: add "- programs.html" here, set "published: true" in
+  #   programs.html, and set "output: true" for programs below.
+  # - Co-authors: add "- coauthors.html" here and set "published: true"
+  #   in coauthors.html.
+
+collections:
+  papers:
+    output: true
+    permalink: /papers/:name/
+    sort_by: order
+  authors:
+    output: true
+    permalink: /authors/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+    sort_by: order
+  programs:
+    output: false   # hidden for now, see header_pages
+    permalink: /programs/:name/
+    sort_by: order
+
+defaults:
+  - scope: { type: papers }
+    values: { layout: paper, section: papers }
+  - scope: { type: authors }
+    values: { layout: author, section: coauthors }
+  - scope: { type: projects }
+    values: { layout: project, section: projects }
+  - scope: { type: programs }
+    values: { layout: program, section: programs }
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - tests/
+  - vendor/
+  - .bundle/
+  - node_modules/
+  - me.jpg
+  - figures/
+
+sass:
+  style: compressed
+  quiet_deps: true
+  silence_deprecations: [import, global-builtin, color-functions, slash-div]

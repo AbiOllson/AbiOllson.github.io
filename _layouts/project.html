@@ -1,0 +1,28 @@
+---
+layout: default
+section: projects
+---
+{%- assign papers = site.papers | sort: "order" | reverse -%}
+<article class="post item-page">
+  <p class="breadcrumb"><a href="{{ '/projects/' | relative_url }}">Research</a></p>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="paper-authors">{% include author-names.html keys=page.authors %}</p>
+  </header>
+  <div class="post-content">
+    {{ content }}
+    {% include project-figure.html project=page %}
+    {%- if page.code %}
+    <ul class="inline-links">
+      {%- for c in page.code %}<li><a href="{{ c.url }}">Code: {{ c.name }}</a></li>{% endfor -%}
+    </ul>
+    {%- endif %}
+
+    <h2>Papers</h2>
+    <ul class="paper-list">
+      {%- for p in papers -%}
+        {%- if p.projects contains page.short -%}{% include paper-item.html paper=p %}{%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</article>

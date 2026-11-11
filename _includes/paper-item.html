@@ -1,0 +1,10 @@
+{%- assign p = include.paper -%}
+<li class="paper-item">
+  <p class="paper-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+  <p class="paper-authors">{% include author-names.html keys=p.authors %}</p>
+  <p class="paper-status">{% include paper-status.html paper=p %}</p>
+  {%- if include.abstract and p.content.size > 2 %}
+  <div class="paper-abstract">{{ p.content }}</div>
+  {%- endif %}
+  {% include paper-links.html paper=p %}
+</li>

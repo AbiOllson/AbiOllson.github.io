@@ -1,0 +1,13 @@
+{%- assign t = include.talk -%}
+{%- assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," -%}
+{%- assign mi = t.month | minus: 1 -%}
+<li class="talk-item">
+  <p class="talk-title">{{ t.title }}{% if t.type == "poster" %} <span class="tag">Poster</span>{% endif %}</p>
+  <p class="talk-event">{% if t.url %}<a href="{{ t.url }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}, {{ t.venue }}, {% if t.day %}{{ t.day }} {% endif %}{{ months[mi] }} {{ t.year }}</p>
+  {%- if t.slides or t.video %}
+  <ul class="inline-links">
+    {%- if t.slides %}<li><a href="{{ t.slides | relative_url }}">Slides</a></li>{% endif -%}
+    {%- if t.video %}<li><a href="{{ t.video }}">Video</a></li>{% endif -%}
+  </ul>
+  {%- endif %}
+</li>

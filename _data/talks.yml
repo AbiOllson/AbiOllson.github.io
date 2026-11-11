@@ -1,0 +1,94 @@
+# One entry per talk or poster, newest first.
+# Fields: title, event, venue, year, month (1-12), day (optional), type (talk | poster | seminar),
+#         url (event page), slides, video, coauthors (list of keys into _authors/).
+- title: Automatic discovery of generating trees for pattern-avoiding inversion sequences
+  event: Permutation Patterns 2026
+  venue: California State University, Los Angeles, USA
+  year: 2026
+  month: 7
+  type: talk
+  url: https://sites.google.com/view/permutationpatterns2026/program
+- title: Automatic discovery of generating trees for pattern-avoiding inversion sequences
+  event: Discrete Mathematics Seminar
+  venue: Keele University, UK
+  year: 2026
+  month: 6
+  day: 23
+  type: seminar
+- title: Automatic discovery of generating trees for pattern-avoiding inversion sequences
+  event: 30th Postgraduate Combinatorial Conference
+  venue: University of Warwick, UK
+  year: 2026
+  month: 4
+  type: talk
+  url: https://wozmit.github.io/pcc-2026/
+- title: The insertion encoding of Cayley permutations
+  event: Sequences in London 2026
+  venue: City, University of London, UK
+  year: 2026
+  month: 2
+  type: talk
+  url: https://sites.google.com/view/sequences2026/home
+- title: Monotone gridding of permutations
+  event: PiFORUM25
+  venue: Queen Mary University of London, UK
+  year: 2025
+  month: 9
+  type: talk
+  url: https://piscopia.co.uk/piforum25-amplifying-hidden-voices/
+- title: The insertion encoding of Cayley permutations
+  event: Permutation Patterns 2025
+  venue: University of St Andrews, UK
+  year: 2025
+  month: 7
+  type: talk
+  url: https://sites.cs.st-andrews.ac.uk/pp25/program/
+- title: Enumerating inversion sequences with generating trees
+  event: 29th Postgraduate Combinatorial Conference
+  venue: University of Glasgow, UK
+  year: 2025
+  month: 5
+  type: talk
+  url: https://sites.google.com/view/pcc2025/home
+- title: Pattern-avoiding Cayley permutations
+  event: Scottish Combinatorics Meeting 2025
+  venue: University of Glasgow, UK
+  year: 2025
+  month: 4
+  type: poster
+  url: https://www.dcs.gla.ac.uk/~kitty/scm/home.html
+- title: The insertion encoding of Cayley permutations
+  event: PiFORUM24
+  venue: University of Leicester, UK
+  year: 2024
+  month: 9
+  type: talk
+  url: https://piscopia.co.uk/welcome-to-piforum24/
+- title: The insertion encoding of Cayley permutations
+  event: 30th British Combinatorial Conference
+  venue: Queen Mary University of London, UK
+  year: 2024
+  month: 7
+  type: talk
+  url: https://qmul.ac.uk/maths/news-and-events/30th-british-combinatorial-conference
+- title: The insertion encoding of Cayley permutations
+  event: Scottish Combinatorics Meeting 2024
+  venue: University of St Andrews, UK
+  year: 2024
+  month: 5
+  type: talk
+  url: https://sites.cs.st-andrews.ac.uk/scm2024/schedule.html
+- title: The insertion encoding of Cayley permutations
+  event: Discrete Mathematics Seminar
+  venue: Keele University, UK
+  year: 2024
+  month: 5
+  day: 23
+  type: seminar
+- title: The insertion encoding of Cayley permutations
+  event: 28th Postgraduate Combinatorial Conference
+  venue: London School of Economics and University College London, UK
+  year: 2024
+  month: 4
+  type: talk
+  url: https://sites.google.com/view/pcc-2024/home

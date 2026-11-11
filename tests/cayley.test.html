@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cayley permutation checks</title>
+<style>body{font:15px/1.5 monospace;margin:16px;background:#fff;color:#111} .fail{color:#a00;font-weight:bold}</style>
+</head>
+<body>
+<h1>Cayley permutation checks</h1>
+<p>Serve the repository root (for example <code>python -m http.server</code>) and open <code>/tests/cayley.test.html</code>.</p>
+<pre id="out">Running…</pre>
+<script>var module = { exports: {} };</script>
+<script src="../assets/js/cayley.js"></script>
+<script src="cayley.test.js"></script>
+<script>
+  (async function () {
+    var cp = module.exports, out = document.getElementById("out"), lines = [];
+    var expected = null;
+    try { expected = await (await fetch("av_expected.json")).json(); } catch (e) {}
+    var failures = runCayleyTests(cp, expected, function (s) { lines.push(s); });
+    out.innerHTML = lines.map(function (s) {
+      var esc = s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+      return s.indexOf("FAIL") === 0 ? '<span class="fail">' + esc + "</span>" : esc;
+    }).join("\n");
+    document.title = failures ? "FAILED" : "PASSED";
+  })();
+</script>
+</body>
+</html>

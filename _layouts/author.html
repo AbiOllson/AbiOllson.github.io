@@ -1,0 +1,42 @@
+---
+layout: default
+section: coauthors
+---
+{%- assign papers = site.papers | sort: "order" | reverse -%}
+{%- assign projects = site.projects | sort: "order" -%}
+<article class="post item-page">
+  {%- if site.header_pages contains "coauthors.html" %}
+  <p class="breadcrumb"><a href="{{ '/coauthors/' | relative_url }}">Co-authors</a></p>
+  {%- endif %}
+  <header class="post-header">
+    <h1 class="post-title">{{ page.name | escape }}</h1>
+    {%- if page.position %}<p class="author-position">{{ page.position }}</p>{% endif %}
+  </header>
+  <div class="post-content">
+    {{ content }}
+    {%- if page.homepage or page.scholar or page.arxiv %}
+    <ul class="inline-links">
+      {%- if page.homepage %}<li><a href="{{ page.homepage }}">Homepage</a></li>{% endif -%}
+      {%- if page.scholar %}<li><a href="{{ page.scholar }}">Google Scholar</a></li>{% endif -%}
+      {%- if page.arxiv %}<li><a href="{{ page.arxiv }}">arXiv</a></li>{% endif -%}
+    </ul>
+    {%- endif %}
+
+    <h2>Joint papers</h2>
+    <ul class="paper-list">
+      {%- for p in papers -%}
+        {%- if p.authors contains page.short -%}{% include paper-item.html paper=p %}{%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    {%- capture joint_projects -%}
+      {%- for proj in projects -%}
+        {%- if proj.authors contains page.short -%}<li><a href="{{ proj.url | relative_url }}">{{ proj.title }}</a></li>{%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- if joint_projects != "" %}
+    <h2>Joint research projects</h2>
+    <ul>{{ joint_projects }}</ul>
+    {%- endif %}
+  </div>
+</article>

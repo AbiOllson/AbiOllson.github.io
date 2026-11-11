@@ -1,0 +1,90 @@
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage{amsfonts,amssymb,amsmath}
+\usepackage{mathpazo}
+\begin{document}
+    \begin{tikzpicture}
+        \node at (4, 10.125) {$(0, \{0\})$};
+        \draw (5, 10.125) -- (7, 4.75);
+        \draw (5, 10.125) -- (7, 8.5);
+        \draw (5, 10.125) -- (7, 11.75);
+        \draw (5, 10.125) -- (7, 14.5);
+
+        \node at (8, 4.75) {$(00, \emptyset)$};
+        \draw (9, 4.75) -- (10.5, 3.5);
+        \draw (9, 4.75) -- (10.5, 4);
+        \draw (9, 4.75) -- (10.5, 4.5);
+        \draw (9, 4.75) -- (10.5, 5);
+        \draw (9, 4.75) -- (10.5, 5.5);
+        \draw (9, 4.75) -- (10.5, 6);
+        \node[anchor=west] at (10.5, 3.5) {$(001, \emptyset)$};
+        \node[anchor=west] at (10.5, 4) {$(001, \{1\})$};
+        \node[anchor=west] at (10.5, 4.5) {$(002, \emptyset)$};
+        \node[anchor=west] at (10.5, 5) {$(002, \{2\})$};
+        \node[anchor=west] at (10.5, 5.5) {$(002, \{1\})$};
+        \node[anchor=west] at (10.5, 6) {$(002, \{1,2\})$};
+
+        \node at (8, 8.5) {$(00, \{0\})$};
+        \draw (9, 8.5) -- (10.5, 6.75);
+        \draw (9, 8.5) -- (10.5, 7.25);
+        \draw (9, 8.5) -- (10.5, 7.75);
+        \draw (9, 8.5) -- (10.5, 8.25);
+        \draw (9, 8.5) -- (10.5, 8.75);
+        \draw (9, 8.5) -- (10.5, 9.25);
+        \draw (9, 8.5) -- (10.5, 9.75);
+        \draw (9, 8.5) -- (10.5, 10.25);
+        \node[anchor=west] at (10.5, 6.75) {$(000, \emptyset)$};
+        \node[anchor=west] at (10.5, 7.25) {$(000, \{0\})$};
+        \node[anchor=west] at (10.5, 7.75) {$(001, \{0\})$};
+        \node[anchor=west] at (10.5, 8.25) {$(001, \{0,1\})$};
+        \node[anchor=west] at (10.5, 8.75) {$(002, \{0\})$};
+        \node[anchor=west] at (10.5, 9.25) {$(002, \{0,2\})$};
+        \node[anchor=west] at (10.5, 9.75) {$(002, \{0,1\})$};
+        \node[anchor=west] at (10.5, 10.25) {$(002, \{0,1,2\})$};
+
+        \node at (8, 11.75) {$(01, \{0\})$};
+        \draw (9, 11.75) -- (10.5, 11);
+        \draw (9, 11.75) -- (10.5, 11.5);
+        \draw (9, 11.75) -- (10.5, 12);
+        \draw (9, 11.75) -- (10.5, 12.5);
+        \node[anchor=west] at (10.5, 11) {$(010, \emptyset)$};
+        \node[anchor=west] at (10.5, 11.5) {$(010, \{0\})$};
+        \node[anchor=west] at (10.5, 12) {$(012, \{0\})$};
+        \node[anchor=west] at (10.5, 12.5) {$(012, \{0,2\})$};
+
+        \node at (8, 14.5) {$(01, \{0,1\})$};
+        \draw (9, 14.5) -- (10.5, 13.25);
+        \draw (9, 14.5) -- (10.5, 13.75);
+        \draw (9, 14.5) -- (10.5, 14.25);
+        \draw (9, 14.5) -- (10.5, 14.75);
+        \draw (9, 14.5) -- (10.5, 15.25);
+        \draw (9, 14.5) -- (10.5, 15.75);
+        \node[anchor=west] at (10.5, 13.25) {$(010, \{1\})$};
+        \node[anchor=west] at (10.5, 13.75) {$(010, \{0,1\})$};
+        \node[anchor=west] at (10.5, 14.25) {$(011, \{0\})$};
+        \node[anchor=west] at (10.5, 14.75) {$(011, \{0,1\})$};
+        \node[anchor=west] at (10.5, 15.25) {$(012, \{0,1\})$};
+        \node[anchor=west] at (10.5, 15.75) {$(012, \{0,1,2\})$};
+
+        \node at (0, 5.625) {$\epsilon$};
+        \draw (0.5, 5.625) -- (3, 1.125);
+        \draw (0.5, 5.625) -- (3, 10.125);
+
+        \node at (4, 1.125) {$(0, \emptyset)$};
+        \draw (5, 1.125) -- (7, 2);
+        \draw (5, 1.125) -- (7, 0.25);
+        \node at (8, 2) {$(01, \{1\})$};
+        \draw (9, 2) -- (10.5, 2.75);
+        \draw (9, 2) -- (10.5, 2.25);
+        \draw (9, 2) -- (10.5, 1.75);
+        \draw (9, 2) -- (10.5, 1.25);
+        \node[anchor=west] at (10.5, 2.75) {$(012, \{1, 2\})$};
+        \node[anchor=west] at (10.5, 2.25) {$(012, \{1\})$};
+        \node[anchor=west] at (10.5, 1.75) {$(011, \{1\})$};
+        \node[anchor=west] at (10.5, 1.25) {$(011, \emptyset)$};
+        \node at (8, 0.25) {$(01, \emptyset)$};
+        \draw (9, 0.25) -- (10.5, 0.5);
+        \draw (9, 0.25) -- (10.5, 0);
+        \node[anchor=west] at (10.5, 0.5) {$(012, \{2\})$};
+        \node[anchor=west] at (10.5, 0) {$(012, \emptyset)$};
+    \end{tikzpicture}
+\end{document}

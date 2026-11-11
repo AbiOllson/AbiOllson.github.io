@@ -1,0 +1,26 @@
+---
+layout: page
+title: Co-authors
+section: coauthors
+permalink: /coauthors/
+# Hidden for now: set to true and add coauthors.html to header_pages in _config.yml.
+published: false
+---
+{%- comment -%}Everyone named on a paper except me, alphabetically by family name (the file's short name).{%- endcomment -%}
+{%- assign keys = "" | split: "" -%}
+{%- for p in site.papers -%}{%- assign keys = keys | concat: p.authors -%}{%- endfor -%}
+{%- assign keys = keys | uniq | sort -%}
+<ul class="coauthor-list">
+{%- for key in keys -%}
+  {%- assign a = site.authors | where: "short", key | first -%}
+  {%- if a and a.is_me != true -%}
+  <li>
+    <p class="coauthor-name"><a href="{{ a.url | relative_url }}">{{ a.name }}</a></p>
+    <p class="author-position">{{ a.position }}</p>
+    {%- if a.content.size > 2 %}{{ a.content }}{% endif %}
+  </li>
+  {%- elsif a == nil -%}
+  <li><p class="coauthor-name">{{ key }}</p><p>Missing author file: _authors/{{ key }}.md</p></li>
+  {%- endif -%}
+{%- endfor -%}
+</ul>

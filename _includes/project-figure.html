@@ -1,0 +1,23 @@
+{%- comment -%}
+Figures of a project, from its `figures:` front matter. Each figure has either
+  src, alt, caption                  (one image), or
+  caption and grid: [{src, alt, caption}, ...]   (several small images).
+Usage: {% include project-figure.html project=p %}            all figures, large
+       {% include project-figure.html project=p small=true %} first figure, small
+{%- endcomment -%}
+{%- assign figs = include.project.figures -%}
+{%- for f in figs -%}
+  {%- if include.small and forloop.index > 1 %}{% break %}{% endif %}
+<figure class="project-figure{% if include.small %} is-small{% endif %}{% if f.grid %} has-grid{% endif %}">
+  {%- if f.grid %}
+  <ul class="figure-grid">
+    {%- for g in f.grid %}
+    <li><img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: g.caption | escape }}" width="300" height="300"><span>{{ g.caption }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <a href="{{ f.src | relative_url }}" title="Open the full-size figure"><img src="{{ f.src | relative_url }}" alt="{{ f.alt | escape }}"></a>
+  {%- endif %}
+  {%- if f.caption %}<figcaption>{{ f.caption }}</figcaption>{% endif %}
+</figure>
+{%- endfor -%}

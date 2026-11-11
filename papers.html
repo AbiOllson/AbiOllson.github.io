@@ -1,0 +1,12 @@
+---
+layout: page
+title: Papers
+section: papers
+permalink: /papers/
+---
+{%- assign papers = site.papers | sort: "order" | reverse -%}
+<ul class="paper-list">
+{%- for p in papers -%}
+  {% include paper-item.html paper=p abstract=true %}
+{%- endfor -%}
+</ul>

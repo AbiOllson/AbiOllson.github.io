@@ -1,0 +1,9 @@
+{%- assign p = include.paper -%}
+{%- if p.doi or p.arxiv or p.code or p.slides -%}
+<ul class="inline-links">
+  {%- if p.doi %}<li><a href="https://doi.org/{{ p.doi }}">Journal version (doi:{{ p.doi }})</a></li>{% endif -%}
+  {%- if p.arxiv %}<li><a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv:{{ p.arxiv }}</a></li>{% endif -%}
+  {%- if p.code %}<li><a href="{{ p.code }}">Code</a></li>{% endif -%}
+  {%- if p.slides %}<li><a href="{{ p.slides | relative_url }}">Slides</a></li>{% endif -%}
+</ul>
+{%- endif -%}

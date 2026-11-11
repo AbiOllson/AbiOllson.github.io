@@ -1,0 +1,7 @@
+{%- comment -%}The status line of a paper: its citation when published or accepted, otherwise "Submitted" or "In preparation".{%- endcomment -%}
+{%- assign p = include.paper -%}
+{%- case p.status -%}
+{%- when "published", "accepted" -%}{{ p.citation }}
+{%- when "submitted" -%}Submitted
+{%- else -%}In preparation
+{%- endcase -%}
